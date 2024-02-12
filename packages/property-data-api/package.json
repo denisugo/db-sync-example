@@ -6,7 +6,8 @@
   },
   "scripts": {
     "gen": "prisma generate",
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "migrate": "prisma migrate dev"
   },
   "dependencies": {
     "@hono/node-server": "^1.4.1",
