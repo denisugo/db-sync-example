@@ -1,0 +1,25 @@
+{
+  "name": "@db-sync/resident-data-api",
+  "version": "0.0.1",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "scripts": {
+    "gen": "prisma generate",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.4.1",
+    "@prisma/client": "^5.8.1",
+    "hono": "^3.12.7",
+    "redis": "^4.6.12"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.0",
+    "@types/node": "^20.11.9",
+    "prisma": "^5.8.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^3.12.2",
+    "typescript": "^5.3.3"
+  }
+}

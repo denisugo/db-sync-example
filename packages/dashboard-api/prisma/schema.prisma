@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../node_modules/@prisma/client/dashboard"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Property {
+  id             String     @id
+  country        String
+  city           String
+  street         String
+  buildingNumber String
+  occupied       Boolean
+  Resident       Resident[]
+}
+
+model Resident {
+  id         String   @id
+  firstName  String
+  lastName   String
+  propertyId String
+  Property   Property @relation(fields: [propertyId], references: [id])
+}
+
+view Dashboard {
+  propertyId     String  @unique
+  country        String
+  city           String
+  street         String
+  buildingNumber String
+  residentId     String?
+  firstName      String?
+  lastName       String?
+  // according to this issue (https://github.com/prisma/prisma/issues/3387), 
+  // prisma does not support @@unique over nullable fields. Thus, the impact is unclear.
+
+  // @@unique([residentId, propertyId])
+}

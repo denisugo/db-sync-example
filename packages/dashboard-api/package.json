@@ -1,0 +1,23 @@
+{
+  "name": "@db-sync/dashboard-api",
+  "version": "0.0.1",
+  "scripts": {
+    "gen": "prisma generate",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.4.1",
+    "@prisma/client": "^5.8.1",
+    "hono": "^3.12.7",
+    "redis": "^4.6.12",
+    "@db-sync/property-data-api": "*",
+    "@db-sync/resident-data-api": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.9",
+    "prisma": "^5.8.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^3.12.2",
+    "typescript": "^5.3.3"
+  }
+}
